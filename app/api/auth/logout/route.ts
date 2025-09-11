@@ -2,9 +2,9 @@ import { getUserFromCookies } from "@/lib/auth";
 import { connectionToDatabase } from "@/lib/db";
 import User from "@/models/User_model";
 import { cookies } from "next/headers";
-import { NextRequest, NextResponse } from "next/server";
+import {  NextResponse } from "next/server";
 
-export async function GET(req: NextRequest) {
+export async function GET() {
   try {
     const decoded = await getUserFromCookies();
     if (!decoded) {

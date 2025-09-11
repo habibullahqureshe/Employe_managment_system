@@ -11,14 +11,10 @@ import {
 } from "@/components/ui/table"
 import { Badge } from "@/components/ui/badge"
 import { getAllUser } from "@/services/adminservice"
-
 import React, { useEffect, useState } from "react"
 import { toast } from "sonner"
 import { useAppSelector } from "@/store"
-
 import Loading from "@/components/ui/loading"
-import { useRouter } from "next/navigation"
-
 type User = {
   userId: string
   name: string
@@ -26,13 +22,11 @@ type User = {
   role: string
   status: "online" | "offline" | string
 }
-
 const Page = () => {
   const [allUsers, setAllUsers] = useState<User[]>([])
   const [loading, setLoading] = useState<boolean>(true)
   const [error, setError] = useState<string | null>(null)
   const user = useAppSelector((state) => state.auth.user);
-  
 useEffect(() => {
   if (user && user?.role === "admin") {
     const fetchUsers = async () => {
@@ -40,14 +34,20 @@ useEffect(() => {
         setLoading(true);
         const res = await getAllUser({ email: user.email });
         setAllUsers(res.data || []);
-      } catch (err: any) {
-        toast.error(err.message);
-        setError(err.message || "Failed to fetch users");
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          toast.error(err.message);
+          setError(err.message || "Failed to fetch users");
+        } else {
+          toast.error("Failed to fetch users");
+          setError("Failed to fetch users");
+        }
       } finally {
         setLoading(false);
       }
     };
-    fetchUsers();
+
+    fetchUsers(); 
   }
 }, [user]);
 

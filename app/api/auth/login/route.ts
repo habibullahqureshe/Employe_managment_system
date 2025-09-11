@@ -1,14 +1,12 @@
 import { connectionToDatabase } from "@/lib/db";
 import { response } from "@/lib/response";
-
-import { zodSchema } from "@/lib/zodSchema";
-import User from "@/models/User_model"; // mongoose model
+import User from "@/models/User_model";
 import { cookies } from "next/headers";
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest } from "next/server";
 
-export async function POST(req: NextRequest, res: NextResponse) {
+export async function POST(req: NextRequest) {
   try {
-    const payload = await req.json(); // ✅ yahan JSON milega
+    const payload = await req.json(); 
     const { email, password } = payload;
 
     console.log("Received:", email, password);
