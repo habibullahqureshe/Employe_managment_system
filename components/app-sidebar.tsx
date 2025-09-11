@@ -35,7 +35,7 @@ const data = {
     name: "dev",
     email: "m@example.com",
     avatar: "IconUsers",
-  },
+  } ,
   navMainEmploye: [
     {
       title: "Dashboard",
@@ -173,7 +173,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <NavSecondary items={data.navSecondary} className="mt-auto" />
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={user} />
+        <NavUser user={user || undefined} />
       </SidebarFooter>
     </Sidebar>
   )

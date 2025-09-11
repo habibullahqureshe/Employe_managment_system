@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
+
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
@@ -23,7 +23,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { registerApi } from "@/services/authService";
 import { useRouter } from "next/navigation";
-import { useAppSelector } from "@/store";
+
 import { AxiosError } from "axios";
 
 export function SignupForm ({
