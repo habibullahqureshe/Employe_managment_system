@@ -1,41 +1,144 @@
-<<<<<<< HEAD
-# Employe_managment_system
-Detailed employee profiles (Employee ID, Name, Contact Info, Role, Department, Date of Joining, Salary).
-=======
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# 📄 Final README.md
 
-First, run the development server:
+````markdown
+# 🚀 Employee Management System
+
+A complete **Employee Management System** built with **Next.js 15** (frontend) and **NestJS** (backend).  
+It provides **role-based authentication**, user dashboards, and admin controls with a modern responsive UI.
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- [Next.js 15](https://nextjs.org/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [Redux Toolkit](https://redux-toolkit.js.org/)
+- [Axios](https://axios-http.com/)
+- [Sonner](https://sonner.emilkowal.ski/) (Toast notifications)
+- [Shadcn UI](https://ui.shadcn.com/) (UI components)
+
+### Backend
+- [NestJS](https://nestjs.com/)
+- [MongoDB + Mongoose](https://mongoosejs.com/)
+- [JWT Authentication](https://jwt.io/)
+
+---
+
+## 🔑 Authentication & Roles
+
+- **Admin**
+  - Manage all users (Add, Update, Delete)
+  - Assign roles & control permissions
+  - Access admin dashboard
+
+- **Employee**
+  - View personal dashboard
+  - Manage own profile
+  - Access employee-specific features
+
+---
+
+## ✨ Features
+
+- 🔐 JWT Authentication with Access & Refresh tokens  
+- 👥 Role-based Dashboards (Admin & Employee)  
+- 📊 CRUD for Users (Admin only)  
+- 🕒 Secure Sessions with token expiry  
+- 🔔 Toast Notifications (Success/Error)  
+- 🎨 Modern Responsive UI with TailwindCSS  
+- 🌍 Ready for deployment on Vercel  
+
+---
+
+## ⚙️ Environment Variables
+
+Create a `.env` file in both **frontend** and **backend** with the following variables:
+
+### Backend (`.env`)
+```env
+MONGOOSE_URI="your_mongodb_connection_string"
+ACCESS_TOKEN_SECRET="your_secret_key"
+ACCESS_TOKEN_EXPIRY="60"          # in seconds
+REFRESH_TOKEN_SECRET="your_refresh_secret_key"
+REFRESH_TOKEN_EXPIRY="7d"         # in days
+ADMIN_EMAIL="admin@gmail.com"
+ADMIN_PASSWORD="adminadmin"
+NODE_ENV="development"
+````
+
+### Frontend (`.env.local`)
+
+```env
+NEXT_PUBLIC_APP_URL="http://localhost:3000"
+```
+
+---
+
+## 🚀 Getting Started
+
+### 1️⃣ Clone the Repository
+
+```bash
+git clone https://github.com/habibullahqureshe/employee-management-system.git
+cd employee-management-system
+```
+
+### 2️⃣ Install Dependencies
+
+#### Frontend
+
+```bash
+cd frontend
+npm install
+```
+
+#### Backend
+
+```bash
+cd backend
+npm install
+```
+
+### 3️⃣ Run Locally
+
+#### Frontend (Next.js)
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+#### Backend (NestJS)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run start:dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The app will run on:
 
-## Learn More
+* Frontend → [http://localhost:3000](http://localhost:3000)
+* Backend → [http://localhost:5000](http://localhost:5000)
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🌐 Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+* Deploy the **Next.js** frontend and backend on [Vercel](https://vercel.com/).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
->>>>>>> 47006db (Initial commit)
+
+
+
+
+
+## 👨‍💻 Author
+
+Developed by **Habibullah Qureshe**
+📧 Email: [habibullahqureshe@gmail.com](mailto:habibullahqureshe@gmail.com)
+
+```
+
+---
+

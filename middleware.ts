@@ -1,9 +1,6 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-const ACCESS_TOKEN_SECRET = process.env.ACCESS_TOKEN_SECRET!;
-
-
 const publicRoutes = ["/api/auth/login", "/api/auth/register"];
 
 export function middleware(req: NextRequest) {
