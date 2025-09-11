@@ -34,9 +34,9 @@ export async function POST(req: NextRequest) {
       { success: true, message: "All users retrieved successfully.", data: allUsers },
       { status: 200 }
     );
-  } catch (error: any) {
+  } catch (error) {
     return NextResponse.json(
-      { success: false, message: "Internal Server Error", error: error.message },
+      { success: false, message: "Internal Server Error", error },
       { status: 500 }
     );
   }
