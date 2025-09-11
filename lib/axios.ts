@@ -2,11 +2,11 @@ import axios from "axios";
 import { store } from "@/store";
 
 const api = axios.create({
-  baseURL: "http://localhost:3000/api", // apna backend url
+  baseURL: "/api", 
   withCredentials: true, 
 });
 
-// Har request me token lagao agar available ho
+
 api.interceptors.request.use((config) => {
   const state = store.getState();
   const token = state.auth.token;
