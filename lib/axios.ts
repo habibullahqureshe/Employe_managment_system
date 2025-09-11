@@ -2,8 +2,10 @@ import axios from "axios";
 import { store } from "@/store";
 
 const api = axios.create({
-  baseURL: "/api", 
-  withCredentials: true, 
+  baseURL: process.env.NODE_ENV === "development"
+    ? `${process.env.NEXT_PUBLIC_APP_URL}/api`
+    : "/api",
+  withCredentials: true,
 });
 
 

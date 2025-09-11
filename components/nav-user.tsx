@@ -29,10 +29,11 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar"
 import { logoutApi } from "@/services/authService"
-import { persistor, useAppDispatch } from "@/store"
+import { persistor, useAppDispatch, useAppSelector } from "@/store"
 import { logout } from "@/store/AuthSlice"
 import { toast } from "sonner"
 import { useRouter } from "next/navigation";
+
 export function NavUser({
   user,
 }: {
@@ -44,22 +45,28 @@ export function NavUser({
 }) {
   const { isMobile } = useSidebar()
     const dispatch = useAppDispatch();
-     const router = useRouter();
-   const handleLogout = async () => {
-    try {
-      const res = await logoutApi();
-
-      if (res.status === 200 || res ) {
-        dispatch(logout()); // Redux store clear
-        await persistor.purge();
-        toast.success(res.data.message || "Logged out successfully");
-        router.replace("/auth/login"); // redirect login page
-      }
-    } catch (err) {
-      console.error("Logout error:", err);
-      toast.error("Logout failed, please try again");
+    const router = useRouter();
+    
+    const getUser  = useAppSelector((state) => state.auth);
+  
+  const handleLogout = async () => {
+  try {
+    const email = getUser.user?.email ;
+    if (!email) {
+      toast.error("No user email found for logout");
+      return;
     }
-  };
+    const res = await logoutApi({ email }); 
+    dispatch(logout()); 
+    await persistor.purge();
+    toast.success(res.data.message || "Logged out successfully");
+    router.replace("/auth/login"); 
+  } catch (err) {
+    console.error("Logout error:", err);
+    toast.error("Logout failed, please try again");
+  }
+};
+
 
   return (
     <SidebarMenu>
