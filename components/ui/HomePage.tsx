@@ -157,14 +157,7 @@ const HomePage = () => {
           >
             <i className="fa fa-check-circle"></i> Get Started Today
           </Link>
-          <hr className="border-white/30 my-10" />
-          <p className="text-white/70">
-            Crafted with{" "}
-            <i className="fa fa-heart text-red-500"></i> by{" "}
-            <a href="#" className="underline">
-              haibullah
-            </a>
-          </p>
+         
         </div>
       </footer>
       {/* END Footer */}
