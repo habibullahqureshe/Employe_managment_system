@@ -128,12 +128,7 @@ export function SignupForm({
                       <FormItem>
                         <div className="flex items-center justify-between">
                           <FormLabel>Password</FormLabel>
-                          <a
-                            href="#"
-                            className="ml-auto text-sm underline-offset-2 hover:underline"
-                          >
-                            Forgot your password?
-                          </a>
+                         
                         </div>
                         <FormControl>
                           <div className="relative">
